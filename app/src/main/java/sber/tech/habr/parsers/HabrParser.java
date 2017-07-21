@@ -51,15 +51,16 @@ public class HabrParser {
                         }
                         break;
                     case XmlPullParser.TEXT:
-                        if (captureTitle) {
+
+                        if (captureTitle && habrNews.getTitle()==null ) {
                             habrNews.setTitle(mParser.getText());
                         }
 
-                        if (captureDescription) {
+                        if (captureDescription  && habrNews.getDescription()==null ) {
                             habrNews.setDescription(mParser.getText());
                         }
 
-                        if (captureLink) {
+                        if (captureLink && habrNews.getLink()==null ) {
                             habrNews.setLink(mParser.getText());
                         }
 

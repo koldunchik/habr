@@ -2,5 +2,10 @@
     <string name="app_name">Habr RSS Reader</string>
 
     <string name="refresh">Refresh</string>
+    <string name="update">Update</string>
     <string name="title_activity_detail">Detail</string>
+
+    <string name="connection_error">Refresh</string>
+    <string name="xml_error">xml_error</string>
+
 </resources>
