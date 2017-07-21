@@ -18,18 +18,21 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvHabrItems;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-
+    private Boolean initialized = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView rvHabrItems = (RecyclerView)findViewById(R.id.rvHabrItems);
-        mLayoutManager = new LinearLayoutManager(this);
-        rvHabrItems.setLayoutManager(mLayoutManager);
+        if (!initialized) {
+            RecyclerView rvHabrItems = (RecyclerView) findViewById(R.id.rvHabrItems);
+            mLayoutManager = new LinearLayoutManager(this);
+            rvHabrItems.setLayoutManager(mLayoutManager);
 
-        mAdapter = new HabrItemsAdapter(HabrItemsManager.ITEMS);
-        rvHabrItems.setAdapter(mAdapter);
+            mAdapter = new HabrItemsAdapter(HabrItemsManager.ITEMS);
+            rvHabrItems.setAdapter(mAdapter);
+            doRefresh();
+        }
     }
 
     @Override
@@ -43,14 +46,17 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menuRefresh:
-                //startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-                ((HabrItemsAdapter)mAdapter).clear();
-                ((HabrItemsAdapter)mAdapter).updateDataset(HabrItemsManager.ITEMS);
-                HabrParser.parseRSS(getResources().getXml(R.xml.stub));
-                mAdapter.notifyDataSetChanged();
+                doRefresh();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void doRefresh() {
+        ((HabrItemsAdapter)mAdapter).clear();
+        ((HabrItemsAdapter)mAdapter).updateDataset(HabrItemsManager.ITEMS);
+        HabrParser.parseRSS(getResources().getXml(R.xml.stub));
+        mAdapter.notifyDataSetChanged();
     }
 
 }

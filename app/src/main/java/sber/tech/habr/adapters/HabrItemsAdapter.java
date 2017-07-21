@@ -8,16 +8,23 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import sber.tech.habr.DetailActivity;
+import sber.tech.habr.MainActivity;
 import sber.tech.habr.R;
+import sber.tech.habr.managers.HabrItemsManager;
 import sber.tech.habr.models.HabrItem;
 
 public class HabrItemsAdapter extends RecyclerView.Adapter<HabrItemsAdapter.ViewHolder> {
@@ -41,8 +48,31 @@ public class HabrItemsAdapter extends RecyclerView.Adapter<HabrItemsAdapter.View
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         HabrItem hItem = mDataset.get(position);
-        holder.mLink.setText(hItem.getLink());
+
         holder.mTitle.setText(hItem.getTitle());
+
+        SpannableString link = new SpannableString(hItem.getLink());
+        link.setSpan(new UnderlineSpan(), 0, link.length(), 0);
+        holder.mLink.setText(link);
+
+        holder.mTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final int position = holder.getAdapterPosition();
+                HabrItem hItem = HabrItemsManager.ITEMS.get(position);
+                String html = hItem.getDescription();
+
+                if (html != null) {
+                    Context context = holder.mView.getContext();
+                    Intent intent = new Intent(context, DetailActivity.class);
+                    intent.putExtra("html", html);
+                    intent.putExtra("title", hItem.getTitle());
+                    context.startActivity(intent);
+                }
+            }
+        });
+
 
         holder.mLink.setOnClickListener(new View.OnClickListener() {
             @Override
