@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Habr</string>
+    <string name="app_name">Habr RSS Reader</string>
+
+    <string name="refresh">Refresh</string>
 </resources>

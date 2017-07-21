@@ -1,0 +1,908 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+    <channel>
+        <title>Хабрахабр / Все / Тематические публикации</title>
+        <link>https://habrahabr.ru/posts/collective/all/</link>
+        <description>
+            <![CDATA[ Все публикации из тематических хабов на Хабрахабре ]]>
+        </description>
+        <language>ru</language>
+        <managingEditor>editor@habrahabr.ru</managingEditor>
+        <generator>habrahabr.ru</generator>
+        <pubDate>Fri, 21 Jul 2017 07:10:39 GMT</pubDate>
+        <lastBuildDate/>
+        <image>
+            <link>https://habrahabr.ru/</link>
+            <url>https://habrahabr.ru/images/logo.png</url>
+            <title>Хабрахабр</title>
+        </image>
+        <item>
+            <title>
+                <![CDATA[ Как мы добавили RAM в серверы HPE ]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333786/</guid>
+            <link>https://habrahabr.ru/post/333786/</link>
+            <description>
+                <![CDATA[
+<img src="https://habrastorage.org/web/31f/594/229/31f594229d394fed8e19628fc8cd1674.png"><br>
+ <br>
+ Качество и надежность DRAM сейчас важнее, чем когда-либо, в основном из-за растущего использования виртуализации серверов. Конечно, стоит отметить что модули RAM, по мнению многих IT-специалистов, являются одним из самых надёжных элементов сервера и выходят из строя последними. Виртуализация имеет много преимуществ, но она значительно увеличивает количество необходимой памяти в сервере для обеспечения оптимальной производительности максимального числа виртуальных машин. По данным HP за 5 лет с 2007 до 2011 средняя память, установленная на всех серверах HP ProLiant, выросла более чем на 500% — от 4 ГБ до более чем 30 ГБ на сервер.<br>
+ <br>
+ В настоящее время как облачный провайдер мы <a href="https://cloud4y.ru/about/infrastructure/equipment/">используем blade-серверы</a> HP ProLiant BL460c Gen8 на шасси HPE BLADESYSTEM C7000 ENCLOSURE. Полностью QuickSpecs <a href="https://www.hpe.com/h20195/v2/getpdf.aspx/c04128175.pdf">тут</a>, обозначим лишь спецификацию RAM. <a href="https://habrahabr.ru/post/333786/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Fri, 21 Jul 2017 07:04:38 GMT</pubDate>
+            <dc:creator>Cloud4Y</dc:creator>
+            <category>
+                <![CDATA[ Серверное администрирование ]]>
+            </category>
+            <category>
+                <![CDATA[ Серверная оптимизация ]]>
+            </category>
+            <category>
+                <![CDATA[ Виртуализация ]]>
+            </category>
+            <category>
+                <![CDATA[ IT-инфраструктура ]]>
+            </category>
+            <category>
+                <![CDATA[ Блог компании Cloud4Y ]]>
+            </category>
+            <category>
+                <![CDATA[ серверы ]]>
+            </category>
+            <category>
+                <![CDATA[ железо и технологии ]]>
+            </category>
+            <category>
+                <![CDATA[ облако ]]>
+            </category>
+            <category>
+                <![CDATA[ ram ]]>
+            </category>
+            <category>
+                <![CDATA[ hp ]]>
+            </category>
+            <category>
+                <![CDATA[ kingston ]]>
+            </category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[
+[Перевод] XBRL: просто о сложном − Глава 3. Анатомия таксономии
+]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333738/</guid>
+            <link>https://habrahabr.ru/post/333738/</link>
+            <description>
+                <![CDATA[
+<h2 id="3-anatomiya-taksonomii">3. Анатомия таксономии</h2><br>
+ <p>Эта глава с названием как у песни рок-группы 60-х годов описывает структуру таксономии XBRL. Больше внимания уделяется тому, <em>что</em> можно сделать с помощью таксономий, и меньше − тому, <em>как</em> это делается с технической точки зрения. Мы оставим этот уровень детализации для другой главы.</p><br>
+ <p>Начнем вот с чего: то, что мы называем таксономией, на самом деле представляет собой, как правило, целый набор связанных документов, называемых <strong>Связанным комплексом таксономий</strong> (Discoverable Taxonomy Set), для краткости − <strong>DTS</strong>.</p><br>
+ <p>Отправной точкой DTS является <strong>Схема таксономии</strong>. Это документ, на который ссылается отчет XBRL. Эта схема таксономии может ссылаться на другие документы, которые в свою очередь могут также ссылаться на другие документы и т.д.</p><br>
+ <p>Чтение DTS подразумевает переход по всем ссылкам до тех пор, пока не будут прочитаны все из связанных документов.</p><br>
+ <p>Таксономия может ссылаться на два типа документов:</p><br>
+ <ul>
+ <li>Таксономия − это тот случай, когда одна таксономия (Extended Taxonomy) расширяет другую таксономию (Base Taxonomy)</li>
+ <li><strong>База ссылок</strong> (Linkbase) − она используется для предоставления дополнительных сведений об определенных в таксономии концептах. Базы ссылок описывают связи между разными концептами, а также между концептом и дополнительной информацией к нему. Всего существует пять основных видов баз ссылок (каждый из которых будет подробно рассматриваться далее):<br>
+ <ul>
+ <li>Определения (Definition)</li>
+ <li>Вычисления (Calculation)</li>
+ <li>Презентация (Presentation)</li>
+ <li>Ярлыки (Label)</li>
+ <li>Ресурсы (Reference)</li>
+ </ul></li>
+ </ul><br>
+ <p>Схематически это можно изобразить следующим образом:</p><br>
+ <p><img src="https://habrastorage.org/web/580/e2a/af2/580e2aaf21884d2ba57720ac5bdce95e.PNG" alt="image"></p> <a href="https://habrahabr.ru/post/333738/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Fri, 21 Jul 2017 00:03:19 GMT</pubDate>
+            <dc:creator>r_udaltsov</dc:creator>
+            <category>
+                <![CDATA[ IT-стандарты ]]>
+            </category>
+            <category>xbrl</category>
+            <category>финансы</category>
+            <category>отчетность</category>
+            <category>цб рф</category>
+            <category>стандарты</category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[ Microsoft Bot Framework на Linux под Node.JS ]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333824/</guid>
+            <link>https://habrahabr.ru/post/333824/</link>
+            <description>
+                <![CDATA[
+Чтобы создать и запустить наш первый чат бот с использованием Microsoft’s Bot Framework <a href="https://dev.botframework.com/">Microsoft’s Bot Framework</a> под Linux нам нужно установить следующие компоненты:<br>
+ <ul>
+ <li>Node JS</li>
+ <li>Bot Framework Emulator</li>
+ <li>Visual Studio Code (не обязательный параметр)</li>
+ </ul><br>
+ После создания простейшего бота мы разберём как можно запускать и отлаживать его. <a href="https://habrahabr.ru/post/333824/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 23:50:07 GMT</pubDate>
+            <dc:creator>Tantrido</dc:creator>
+            <category>
+                <![CDATA[ Разработка под Linux ]]>
+            </category>
+            <category>
+                <![CDATA[ Visual Studio ]]>
+            </category>
+            <category>
+                <![CDATA[ Node.JS ]]>
+            </category>
+            <category>
+                <![CDATA[ microsoft bot framework ]]>
+            </category>
+            <category>
+                <![CDATA[ node.js ]]>
+            </category>
+            <category>
+                <![CDATA[ npm ]]>
+            </category>
+            <category>
+                <![CDATA[ visual studio code ]]>
+            </category>
+            <category>
+                <![CDATA[ .net core ]]>
+            </category>
+            <category>
+                <![CDATA[ c# ]]>
+            </category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[ Байки из Lab’а ]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333822/</guid>
+            <link>https://habrahabr.ru/post/333822/</link>
+            <description>
+                <![CDATA[
+<img src="https://habrastorage.org/web/d9a/8d1/5d6/d9a8d15d664d4ba2a54492dd846f7bb6.jpg"><br>
+ <br>
+ Этим летом нашей компании исполняется 20 лет. Сначала мы хотели написать самопоздравительный текст в стиле «И последним шел Тамерлан. И поднимал он тяжелые камни. И говорил с ними, вспоминая их имена», но потом решили, что еще очень молоды для мемуаров. И вместо этого хотим просто рассказать несколько баек. Причем не обязательно напрямую связанных с кибербезопасностью, короче говоря, все, что как-то выбивается из рутины.<br> <a href="https://habrahabr.ru/post/333822/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 19:24:57 GMT</pubDate>
+            <dc:creator>Kaspersky_Lab</dc:creator>
+            <category>
+                <![CDATA[ Информационная безопасность ]]>
+            </category>
+            <category>
+                <![CDATA[ Блог компании «Лаборатория Касперского» ]]>
+            </category>
+            <category>
+                <![CDATA[ kaspersky lab ]]>
+            </category>
+            <category>
+                <![CDATA[ fun ]]>
+            </category>
+            <category>
+                <![CDATA[ anniversary ]]>
+            </category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[
+[Перевод] Копируем человеческий мозг: операция «Свертка»
+]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333772/</guid>
+            <link>https://habrahabr.ru/post/333772/</link>
+            <description>
+                <![CDATA[
+<p>Чему уже научились сверточные искусственные нейронные сети (ИНС) и как они устроены?</p><br>
+ <h2 id="1-predislovie">1. Предисловие.</h2><br>
+ <p>Такие статьи принято начинать с экскурса в историю, дабы описать кто придумал первые ИНС, как они устроены и налить прочую, бесполезную, по большей части, воду. Скучно. Опустим это. Скорее всего вы представляете, хотя бы образно, как устроены простейшие ИНС. Давайте договоримся рассматривать классические нейронные сети (типа перцептрона), в которых есть только нейроны и связи, как черный ящик, у которого есть вход и выход, и который можно натренировать воспроизводить результат некой функции. Нам не важна архитектура этого ящика, она может быть очень разной для разных случаев. Задачи, которые они решают — это регрессия и классификация.</p><br>
+ <h2 id="2--proryv">2. Прорыв.</h2><br>
+ <p>Что же такого произошло в последние годы, что вызвало бурное развитие ИНС?<br>
+ Ответ очевиден — это технический прогресс и доступность вычислительных мощностей.</p><br>
+ <p>Приведу простой и очень наглядный пример:</p> <a href="https://habrahabr.ru/post/333772/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 18:42:12 GMT</pubDate>
+            <dc:creator>verych</dc:creator>
+            <category>
+                <![CDATA[ Машинное обучение ]]>
+            </category>
+            <category>машинное обучение</category>
+            <category>нейронные сети</category>
+            <category>компьютерное зрение</category>
+            <category>свёрточная нейросеть</category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[
+О дизайне в мобильных приложениях (глазами, умом и сердцем разработчика)
+]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333812/</guid>
+            <link>https://habrahabr.ru/post/333812/</link>
+            <description>
+                <![CDATA[
+На просторах сети можно найти огромное количество самой разной информации о дизайне мобильных приложений: об основных принципах, трендах, свежих идеях, примерах для подражания и т.д. Так вот эта публикация не об этом.<br>
+ <br>
+ Я нередко слышу, что дизайн для мобильного приложения по сути не так уж и важен. Важна функциональность, качество кода и общая архитектура в проекте и другие технические нюансы, а дизайн не так уж важен в конце концов это просто внешний вид приложения и я с этим не согласен. На мой взгляд дизайн не менее важен.<br>
+ <br>
+ В этой публикации я хочу поделиться с вами своим мнением на этот счет и тем как на мой взгляд должно быть построено взаимодействие между командами разработки и дизайна.<br> <a href="https://habrahabr.ru/post/333812/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 16:18:44 GMT</pubDate>
+            <dc:creator>AKhatmullin</dc:creator>
+            <category>
+                <![CDATA[ Разработка под iOS ]]>
+            </category>
+            <category>
+                <![CDATA[ Разработка мобильных приложений ]]>
+            </category>
+            <category>
+                <![CDATA[ Анализ и проектирование систем ]]>
+            </category>
+            <category>
+                <![CDATA[ дизайн мобильных приложений ]]>
+            </category>
+            <category>
+                <![CDATA[ разработка мобильных приложений ]]>
+            </category>
+            <category>
+                <![CDATA[ проектирование мобильных приложений ]]>
+            </category>
+            <category>
+                <![CDATA[ разработка под ios ]]>
+            </category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[
+Getsploit: поиск и загрузка эксплойтов по агрегированной базе данных
+]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333808/</guid>
+            <link>https://habrahabr.ru/post/333808/</link>
+            <description>
+                <![CDATA[
+<p>Когда я думал над дальнейшим вектором развития <a href="https://habrahabr.ru/company/xakep/blog/305262/">Vulners</a>, я обратил внимание на наших старших братьев — базу данных <a href="https://www.exploit-db.com/">Exploit-DB</a>. Одной из основных утилит в их арсенале является <a href="https://www.exploit-db.com/searchsploit/">searchsploit</a>. Это консольная утилита, которая позволяет искать эксплойты по пользовательским поисковым запросам и сразу же получать их исходные коды. Она является базовой частью <a href="https://www.kali.org/">Kali Linux</a> и оперирует данными по эксплойтам из базы Exploit-DB. Что самое "вкусное", что утилита умеет работать с локальной базой и ты можешь всегда взять ее с собой. Так чем же мы хуже? Мы собрали в Vulners не только коллекцию эксплойтов из Exploit-DB, но и Packet Storm, 0day.today, Seebug, Zero Science Lab и многих других. Что же, давайте изобретем новый велосипед с преферансом и поэтессами.</p> <a href="https://habrahabr.ru/post/333808/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 15:43:34 GMT</pubDate>
+            <dc:creator>isox</dc:creator>
+            <category>
+                <![CDATA[ Информационная безопасность ]]>
+            </category>
+            <category>
+                <![CDATA[ Python ]]>
+            </category>
+            <category>
+                <![CDATA[ python ]]>
+            </category>
+            <category>
+                <![CDATA[ exploit ]]>
+            </category>
+            <category>
+                <![CDATA[ exploitdb ]]>
+            </category>
+            <category>
+                <![CDATA[ hacking ]]>
+            </category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[ Superjob PHP-meetup. Прямая трансляция ]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333804/</guid>
+            <link>https://habrahabr.ru/post/333804/</link>
+            <description>
+                <![CDATA[
+Сегодня в 18:30 по московскому времени в офисе Superjob состоится встреча PHP-разработчиков. Присоединяйтесь к прямой трансляции!<br>
+ <br>
+ <div class="oembed"><div><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.2493%;"><iframe src="https://www.youtube.com/embed/EfL8lsUTlFo?rel=0&amp;showinfo=1" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" allowfullscreen scrolling="no"></iframe></div></div></div><br>
+ <br> <a href="https://habrahabr.ru/post/333804/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 15:37:03 GMT</pubDate>
+            <dc:creator>matvey_travkin</dc:creator>
+            <category>
+                <![CDATA[ Программирование ]]>
+            </category>
+            <category>
+                <![CDATA[ Yii ]]>
+            </category>
+            <category>
+                <![CDATA[ Symfony ]]>
+            </category>
+            <category>
+                <![CDATA[ PHP ]]>
+            </category>
+            <category>
+                <![CDATA[ Блог компании Superjob.ru ]]>
+            </category>
+            <category>
+                <![CDATA[ php ]]>
+            </category>
+            <category>
+                <![CDATA[ события ]]>
+            </category>
+            <category>
+                <![CDATA[ события it профессионалов ]]>
+            </category>
+            <category>
+                <![CDATA[ мероприятия ]]>
+            </category>
+            <category>
+                <![CDATA[ мероприятие ]]>
+            </category>
+            <category>
+                <![CDATA[ разработка ]]>
+            </category>
+            <category>
+                <![CDATA[ встреча разработчиков ]]>
+            </category>
+            <category>
+                <![CDATA[ москва ]]>
+            </category>
+            <category>
+                <![CDATA[ superjob ]]>
+            </category>
+            <category>
+                <![CDATA[ superjob.ru ]]>
+            </category>
+            <category>
+                <![CDATA[ meetup ]]>
+            </category>
+            <category>
+                <![CDATA[ meet-up ]]>
+            </category>
+            <category>
+                <![CDATA[ meet-ups ]]>
+            </category>
+            <category>
+                <![CDATA[ разработка сайтов ]]>
+            </category>
+            <category>
+                <![CDATA[ php программирование ]]>
+            </category>
+            <category>
+                <![CDATA[ php программинг ]]>
+            </category>
+            <category>
+                <![CDATA[ программирование сайтов ]]>
+            </category>
+            <category>
+                <![CDATA[ yii ]]>
+            </category>
+            <category>
+                <![CDATA[ symfony ]]>
+            </category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[
+Интеграция Oculus Rift в десктопное Direct3D приложение на примере Renga
+]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/332806/</guid>
+            <link>https://habrahabr.ru/post/332806/</link>
+            <description>
+                <![CDATA[
+Всем привет! В этой статье хочу разобрать процесс подключения шлема виртуальной реальности к десктопному приложению под Windows. Речь пойдет об Oculus Rift. <br>
+ <br>
+ Архитектурная визуализация — очень благодатная тема для различного рода экспериментов. Мы решили не отставать от тренда. В одной из следующих версий наших BIM-систем (напомню, что я работаю в компании <a href="http://rengabim.com">Renga Software</a>, совместном предприятии АСКОН и фирмы «1С»): <a href="http://rengacad.com/ru/renga/architecture/">Renga Architecture</a> — для архитектурно-строительного проектирования и <a href="http://rengacad.com/ru/renga/structure/">Renga Structure</a> — для проектирования конструктивной части зданий и сооружений, появится возможность хождения по проектируемому зданию в шлеме виртуальной реальности. Это очень удобно для демонстрации проекта заказчику и оценки тех или иных проектных решений с точки зрения эргономики.<br>
+ <br>
+ <img src="https://habrastorage.org/web/a80/919/786/a809197865e44558ae525299e25bd316.jpg" alt="image"><br>
+ <br> <a href="https://habrahabr.ru/post/332806/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 15:17:01 GMT</pubDate>
+            <dc:creator>ershovdz</dc:creator>
+            <category>
+                <![CDATA[ Разработка под Windows ]]>
+            </category>
+            <category>
+                <![CDATA[ Разработка под AR и VR ]]>
+            </category>
+            <category>
+                <![CDATA[ Разработка игр ]]>
+            </category>
+            <category>
+                <![CDATA[ CAD/CAM ]]>
+            </category>
+            <category>
+                <![CDATA[ Блог компании АСКОН ]]>
+            </category>
+            <category>
+                <![CDATA[ virtual reality ]]>
+            </category>
+            <category>
+                <![CDATA[ 3d ]]>
+            </category>
+            <category>
+                <![CDATA[ cad ]]>
+            </category>
+            <category>
+                <![CDATA[ c++ ]]>
+            </category>
+            <category>
+                <![CDATA[ direct3d ]]>
+            </category>
+            <category>
+                <![CDATA[ windows ]]>
+            </category>
+            <category>
+                <![CDATA[ Oculus Rift ]]>
+            </category>
+            <category>
+                <![CDATA[ очки виртуальной реальности ]]>
+            </category>
+            <category>
+                <![CDATA[ виртуальная реальность ]]>
+            </category>
+            <category>
+                <![CDATA[ renga ]]>
+            </category>
+            <category>
+                <![CDATA[ сапр ]]>
+            </category>
+            <category>
+                <![CDATA[ 3d-моделирование ]]>
+            </category>
+            <category>
+                <![CDATA[ 3d графика ]]>
+            </category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[ [Из песочницы] Wi-Fi адаптер через OTG ]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333806/</guid>
+            <link>https://habrahabr.ru/post/333806/</link>
+            <description>
+                <![CDATA[
+<img src="https://habrastorage.org/web/f5a/fca/41f/f5afca41ffd64a2da2caf5f11f5b8f63.png"><br>
+ <br>
+ Идея перевести сетевую карту телефона в режим монитора разрушилась по причине собственной наивности и незнания элементарной информации о том, что подавляющее большинство мобильных сетевых карт этот самый режим монитора и не поддерживают.<br>
+ <br>
+ Идея реализации задумки с помощью внешнего беспроводного Wi-Fi адаптера или «свистка», поддерживающего желанный режим монитора, рушилась десятки раз из-за новых и новых ошибок и потери веры в то, что это вообще возможно, но переросла в данную статью.<br>
+ <br>
+ Итак, как подключить внешний Wi-Fi адаптер к устройству на Android или бег с препятствиями на дистанции «вставил — netcfg wlan0 up»:<br> <a href="https://habrahabr.ru/post/333806/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 15:14:11 GMT</pubDate>
+            <dc:creator>Rechnoy</dc:creator>
+            <category>
+                <![CDATA[ Разработка под Android ]]>
+            </category>
+            <category>android</category>
+            <category>wifi</category>
+            <category>otg</category>
+            <category>monitor</category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[
+Stantinko: масштабная adware-кампания, действующая с 2012 года
+]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333798/</guid>
+            <link>https://habrahabr.ru/post/333798/</link>
+            <description>
+                <![CDATA[
+Рекламное ПО – не самый простой для анализа тип вредоносных программ. Обнаружив комплексную угрозу Stantinko, мы не сразу поняли, что это: рекламное ПО, вредоносная или шпионская программа. Потребовалось время, чтобы выявить ее цели и схемы, поскольку угроза оставляет не так много следов на зараженной машине. Разбираться в экосистеме Stantinko – примерно как собирать пазл. <br>
+ <br>
+ Stantinko специализируется на рекламном мошенничестве, но выделяется на общем фоне технической сложностью. Шифрование кода и оперативная адаптация для защиты от обнаружения антивирусами позволили операторам Stantinko оставаться вне зоны видимости как минимум на протяжении пяти лет. Кроме того, внимание привлекает масштаб Stantinko – это одна из наиболее распространенных в России киберугроз, в составе ботнета около 500 000 устройств.<br>
+ <br>
+ <img src="https://habrastorage.org/web/12b/f2b/7b8/12bf2b7b8b504c2a8ad8dee1380ad38d.jpg"><br>
+ <br> <a href="https://habrahabr.ru/post/333798/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 14:27:02 GMT</pubDate>
+            <dc:creator>esetnod32</dc:creator>
+            <category>
+                <![CDATA[ Антивирусная защита ]]>
+            </category>
+            <category>
+                <![CDATA[ Блог компании ESET NOD32 ]]>
+            </category>
+            <category>
+                <![CDATA[ stantinko ]]>
+            </category>
+            <category>
+                <![CDATA[ adware ]]>
+            </category>
+            <category>
+                <![CDATA[ сlick fraud ]]>
+            </category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[
+Компания HPE начала продажи новых серверов HPE ProLiant Gen10
+]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333800/</guid>
+            <link>https://habrahabr.ru/post/333800/</link>
+            <description>
+                <![CDATA[
+11 июля HPE начала принимать заказы на новые серверы ProLiant Gen10, и в этом материале мы хотим рассказать о ключевых технологиях и характеристиках моделей в этом юбилейном поколении.<br>
+ <br>
+ <img src="https://habrastorage.org/web/4ca/c24/a48/4cac24a48f584671ae837d1e31c167a9.jpg"><br>
+ <br>
+ Хотя выпуск нового поколения серверов и совпал с выпуском процессоров Intel Xeon Scalable Family, это была далеко не единственная причина для обновления. Предпосылками стали новые задачи заказчиков HPE. Среди них: появление новых классов нагрузок (в т.ч. требующих обработки больших объемов данных в памяти и высокой производительности дисковой подсистемы), улучшение управляемости аппаратной инфраструктуры (переход на управление через REST API, интеграция с различными средствами автоматизации ИТ, поддержка шаблонов и сценариев), новые модели потребления ИТ-ресурсов (например, финансовые услуги и оплата по мере использования), а также, не в последнюю очередь, новые угрозы в информационной безопасности, связанные с уязвимостью низкоуровневых компонентов серверов (BIOS и прошивок).<br>
+ <br>
+ Что же нового появилось в серверах HPE ProLiant Gen10 в ответ на все эти задачи. Разберемся по порядку.<br> <a href="https://habrahabr.ru/post/333800/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 14:22:58 GMT</pubDate>
+            <dc:creator>Tigger</dc:creator>
+            <category>
+                <![CDATA[ Серверное администрирование ]]>
+            </category>
+            <category>
+                <![CDATA[ Серверная оптимизация ]]>
+            </category>
+            <category>
+                <![CDATA[ Администрирование баз данных ]]>
+            </category>
+            <category>
+                <![CDATA[ IT-инфраструктура ]]>
+            </category>
+            <category>
+                <![CDATA[ Блог компании Hewlett Packard Enterprise ]]>
+            </category>
+            <category>
+                <![CDATA[ HPE ]]>
+            </category>
+            <category>
+                <![CDATA[ ProLiant ]]>
+            </category>
+            <category>
+                <![CDATA[ ProLiant Gen10 ]]>
+            </category>
+            <category>
+                <![CDATA[ серверы ]]>
+            </category>
+            <category>
+                <![CDATA[ Intel Xeon Scalable ]]>
+            </category>
+            <category>
+                <![CDATA[ iLO ]]>
+            </category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[
+[Из песочницы] Система электронной очереди в банковском бизнесе
+]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333794/</guid>
+            <link>https://habrahabr.ru/post/333794/</link>
+            <description>
+                <![CDATA[
+<i>Взгляд эксперта по IT-разработкам компании «Технологии Будущего» Москалевой Марины на функциональные возможности системы электронной очереди в банковском бизнесе. </i><br>
+ <br>
+ О неоспоримой пользе внедрения IT в финансовый сектор и невероятных преобразованиях, которые способны возникнуть в результате модернизации банковского дела после введения технологических новшеств было уже сказано немало, поэтому без лишних слов приступим к делу.<br> <a href="https://habrahabr.ru/post/333794/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 13:44:28 GMT</pubDate>
+            <dc:creator>TehnologiiBudushego</dc:creator>
+            <category>
+                <![CDATA[ Финансы в IT ]]>
+            </category>
+            <category>электронная очередь</category>
+            <category>банковский бизнес</category>
+            <category>IT в финансовой сфере</category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[
+VAX — инструмент для визуального программирования, или как написать SQL мышкой
+]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333750/</guid>
+            <link>https://habrahabr.ru/post/333750/</link>
+            <description>
+                <![CDATA[
+<img src="https://habrastorage.org/web/639/15c/fa4/63915cfa408b49a390b7414bbb107ffa.png"><br>
+ <br>
+ Я хочу рассказать про созданный мною <a href="https://aveic.github.io/vax/">web редактор для «визуального программирования»</a> и его историю создания. <br> <a href="https://habrahabr.ru/post/333750/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 13:39:25 GMT</pubDate>
+            <dc:creator>aveic</dc:creator>
+            <category>
+                <![CDATA[ Программирование ]]>
+            </category>
+            <category>
+                <![CDATA[ Анализ и проектирование систем ]]>
+            </category>
+            <category>
+                <![CDATA[ SQL ]]>
+            </category>
+            <category>
+                <![CDATA[ JavaScript ]]>
+            </category>
+            <category>
+                <![CDATA[ визуальное программирование ]]>
+            </category>
+            <category>
+                <![CDATA[ я пиарюсь ]]>
+            </category>
+            <category>
+                <![CDATA[ javascript ]]>
+            </category>
+            <category>
+                <![CDATA[ raphael.js ]]>
+            </category>
+            <category>
+                <![CDATA[ vax ]]>
+            </category>
+            <category>
+                <![CDATA[ всё взять и обобщить ]]>
+            </category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[
+Как перейти от КЛАДР к ФИАС и ничего себе не сломать
+]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333736/</guid>
+            <link>https://habrahabr.ru/post/333736/</link>
+            <description>
+                <![CDATA[
+ГНИВЦ ФНС сообщает, что с начала 2018 года КЛАДР перестанет существовать и скачать его будет нельзя. <br>
+ <br>
+ <blockquote><strong>Дисклеймер:</strong> <br>
+ Если вы совсем не поняли, что означают эти наборы букв, ничего страшного. Ниже мы расскажем о реалиях работы с адресами в России. Если вам это неинтересно, почитайте про <a href="https://habrahabr.ru/company/hflabs/blog/314786/">топографические каламбуры</a>. </blockquote><br>
+ Правильные адреса нужны компаниям, которые любят своих клиентов. Знакомые банки, страховые и интернет-магазины, которые сейчас используют справочник КЛАДР, спрашивают нас, что же делать дальше. Поэтому мы запарились и написали пошаговое руководство по переходу <s>с одних букв на другие</s> от КЛАДР к ФИАС.<br>
+ <br>
+ <img src="https://habrastorage.org/web/415/854/cf8/415854cf8c8440f69c0404f4872fe5c6.jpg"><br> <a href="https://habrahabr.ru/post/333736/#habracut">Поехали!</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 13:00:08 GMT</pubDate>
+            <dc:creator>lyalius</dc:creator>
+            <category>
+                <![CDATA[ Разработка под e-commerce ]]>
+            </category>
+            <category>
+                <![CDATA[ Разработка веб-сайтов ]]>
+            </category>
+            <category>
+                <![CDATA[ Анализ и проектирование систем ]]>
+            </category>
+            <category>
+                <![CDATA[ API ]]>
+            </category>
+            <category>
+                <![CDATA[ Блог компании HFLabs ]]>
+            </category>
+            <category>
+                <![CDATA[ ФИАС ]]>
+            </category>
+            <category>
+                <![CDATA[ КЛАДР ]]>
+            </category>
+            <category>
+                <![CDATA[ адреса ]]>
+            </category>
+            <category>
+                <![CDATA[ hflabs ]]>
+            </category>
+            <category>
+                <![CDATA[ подсказки ]]>
+            </category>
+            <category>
+                <![CDATA[ dadata ]]>
+            </category>
+            <category>
+                <![CDATA[ Фактор ]]>
+            </category>
+            <category>
+                <![CDATA[ от КЛАДР к ФИАС ]]>
+            </category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[ [Из песочницы] Asterisk func_odbc или странный ael ]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333790/</guid>
+            <link>https://habrahabr.ru/post/333790/</link>
+            <description>
+                <![CDATA[
+По итогу голосования в <a href="https://t.me/asterisk_expert">группе</a> начинаю цикл статей «Asterisk realtime» и первая статья будет посвящена func_odbc или как упростить свою жизнь. <br>
+ <br>
+ Статья рассчитана на людей которые уже пользуются asterisk и имеют «базовые» навыки. <br> <a href="https://habrahabr.ru/post/333790/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 12:46:55 GMT</pubDate>
+            <dc:creator>agic</dc:creator>
+            <category>
+                <![CDATA[ Asterisk ]]>
+            </category>
+            <category>asterisk</category>
+            <category>odbc asterisk</category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[ Сортировка пузырьком в коде Qualcomm ]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333782/</guid>
+            <link>https://habrahabr.ru/post/333782/</link>
+            <description>
+                <![CDATA[
+Забавной находкой поделился сегодня пользователь fj333 с <a href="https://www.reddit.com/r/cscareerquestions/comments/6oemwp/why_some_companies_insist_on_hiring_candidates/">Reddit</a>. Разбираясь в появившемся год назад проприетарном коде Qualcomm Technologies для Android, он обнаружил, что неизвестный программист решил в production-коде использовать сортировку пузырьком для того, чтобы найти… максимум в массиве.<br>
+ <br>
+ Посмотреть исходный файл вы сможете <a href="https://github.com/tangxunye/android_vendor_qcom_proprietary/blob/e0666c398903d38e72aeda7042ec2836cd3dba68/mm-camera/mm-camera2/media-controller/modules/isp/hw/modules/rolloff/mlro_to_plro/mlro_utils.c">по ссылке на Github</a> или же под катом, а оценить его в работе может любой владелец устройства с Qualcomm Snapdragon 200 MSM8610 под управлением Android.<br>
+ <br>
+ Как известно любому, кто знаком с алгоритмами сортировки, сортировка пузырьком — алгоритм учебный, и в промышленном коде обычно не применяющийся в силу своей <a href="http://imgur.com/tvZbvkJ">неэффективности</a>; дело в том, что в наихудшем и среднем случаях он имеет сложность <i>О(n<sup>2</sup>)</i>, к тому же его емкостная сложность в данном случае — <i>O(n)</i>. Кого это не убедило — использовать сортировку пузырьком <a href="https://www.youtube.com/watch?v=koMpGeZpu4Q">не рекомендует даже Барак Обама</a>. <br>
+ <br>
+ И это всё не учитывая того, что для поиска максимума хватило бы и простого перебора.<br> <a href="https://habrahabr.ru/post/333782/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 12:37:16 GMT</pubDate>
+            <dc:creator>HotWaterMusic</dc:creator>
+            <category>
+                <![CDATA[ Программирование ]]>
+            </category>
+            <category>
+                <![CDATA[ Алгоритмы ]]>
+            </category>
+            <category>
+                <![CDATA[ qualcomm ]]>
+            </category>
+            <category>
+                <![CDATA[ qualcomm snapdragon ]]>
+            </category>
+            <category>
+                <![CDATA[ пузырьковая сортировка ]]>
+            </category>
+            <category>
+                <![CDATA[ алгоритмы ]]>
+            </category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[
+A!Hack Summer — хакатон Альфа-Банка 5 и 6 августа 2017
+]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333784/</guid>
+            <link>https://habrahabr.ru/post/333784/</link>
+            <description>
+                <![CDATA[
+Привет, Хабр! 5 и 6 августа мы будем проводить внешний летний хакатон <a href="https://goo.gl/TMSpsB">“A!Hack Summer”</a>.<br>
+ <br>
+ <a href="https://habrahabr.ru/company/alfa/blog/333784/"><img src="https://habrastorage.org/web/ee6/912/a2e/
+]]>
+                <![CDATA[
+ee6912a2ee30451a9e5460c9bdcb5d4f.png"></a><br>
+ <br>
+ Если вам интересны такие вещи как Artificial Intelligence, Machine Learning, AR/VR, Data Science, вы умеете с ними работать и подумывали сделать что-то свое или знаете, как на базе этого сделать продукт для клиентов банка — заходите в Deworkacy (<a href="https://yandex.ru/maps/213/moscow/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%91%D0%B5%D1%80%D1%81%D0%B5%D0%BD%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BD%D0%B0%D0%B1.%206%20%D1%81%D1%82%D1%80.%203&amp;source=serp_navig&amp;mode=search&amp;sll=37.609245%2C55.740588">Москва, Берсеневская наб. 6 стр. 3</a>) 5 и 6 августа.<br>
+ <br>
+ А о том, для чего мы все это делаем, расскажет Владимир Урбанский, руководитель Альфа-Лаборатории.<br> <a href="https://habrahabr.ru/post/333784/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 12:01:17 GMT</pubDate>
+            <dc:creator>Sterhel</dc:creator>
+            <category>
+                <![CDATA[ Хакатоны ]]>
+            </category>
+            <category>
+                <![CDATA[ Финансы в IT ]]>
+            </category>
+            <category>
+                <![CDATA[ Блог компании «Альфа-Банк» ]]>
+            </category>
+            <category>
+                <![CDATA[ хакатон ]]>
+            </category>
+            <category>
+                <![CDATA[ альфабанк ]]>
+            </category>
+            <category>
+                <![CDATA[ Альфа ]]>
+            </category>
+            <category>
+                <![CDATA[ альфа-лаборатория ]]>
+            </category>
+            <category>
+                <![CDATA[ Artificial Intelligence ]]>
+            </category>
+            <category>
+                <![CDATA[ Machine Learning ]]>
+            </category>
+            <category>
+                <![CDATA[ AR/VR ]]>
+            </category>
+            <category>
+                <![CDATA[ Data Science ]]>
+            </category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[
+Как работать с UX-подрядчиками? Опыт мессенджера «Ответ»
+]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333774/</guid>
+            <link>https://habrahabr.ru/post/333774/</link>
+            <description>
+                <![CDATA[
+В марте мы закончили проектирование интерфейсов мессенджера «<a href="https://otvetapp.ru/">Ответ</a>». Сели писать кейс, стали вспоминать и обнаружили, что это был практически эталонный пример того, как надо работать с внешним подрядчиком по UX-проектированию. То есть с нами. И очень честный такой пример, без розовых пони. Было бы преступлением скрывать от общественности те мысли, которые мы наконец-то оформили в слова. Так что кейс подождет, а пока поговорим про совместную работу.<br>
+ <br>
+ <img src="https://habrastorage.org/web/8e1/3da/2a5/8e13da2a5be443bba8d4fa62416028e1.png"><br>
+ <br> <a href="https://habrahabr.ru/post/333774/#habracut">Читать дальше →</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 11:03:15 GMT</pubDate>
+            <dc:creator>rebraining</dc:creator>
+            <category>
+                <![CDATA[ Управление разработкой ]]>
+            </category>
+            <category>
+                <![CDATA[ Управление проектами ]]>
+            </category>
+            <category>
+                <![CDATA[ Блог компании Собака Павлова ]]>
+            </category>
+            <category>
+                <![CDATA[ Прототипирование ]]>
+            </category>
+            <category>
+                <![CDATA[ интерфейсы ]]>
+            </category>
+            <category>
+                <![CDATA[ Usability ]]>
+            </category>
+            <category>
+                <![CDATA[ совместная работа ]]>
+            </category>
+            <category>
+                <![CDATA[ подрядчики ]]>
+            </category>
+            <category>
+                <![CDATA[ ux-команда ]]>
+            </category>
+            <category>
+                <![CDATA[ ux ]]>
+            </category>
+        </item>
+        <item>
+            <title>
+                <![CDATA[ [Из песочницы] Пусть интернет прогнётся под нас ]]>
+            </title>
+            <guid isPermaLink="true">https://habrahabr.ru/post/333776/</guid>
+            <link>https://habrahabr.ru/post/333776/</link>
+            <description>
+                <![CDATA[
+<div style="text-align:center;"><img src="https://habrastorage.org/web/101/9e0/90d/1019e090d34c4b5ea1e95d2b2f6e8fe6.jpg" /></div><br/>
+ <br/>
+ Если ты давно хотел сделать Интернет чуточку лучше (<i>для себя</i>), но всё было <s>лень </s>некогда, то сегодня твой счастливый день. За 21 шаг я покажу тебе как достичь этой заветной цели. <br/>
+ <br/>
+ Бесплатный бонус! В добавок к интернету, делаем лучше и Google search. Может, Google оценит идею и предложит руку и сердце (если что, я согласная, даже учебу брошу ради него).<br/>
+ &lt;/шутка&gt;<br/>
+ <br/>
+ В этой статье, я расскажу о то как сделать плагин для браузера Хром, на примере собственного опыта спортивного бега по граблям. <br/>
+ <br/>
+ Плагин позволят легко внедрять собственный JavaScript/CSS на любые страницы просматриваемые в браузере. Т.е. этакий chrome extensions API версия lite.<br/>
+ <a href="https://habrahabr.ru/post/333776/#habracut">Читать дальше &rarr;</a>
+]]>
+            </description>
+            <pubDate>Thu, 20 Jul 2017 10:51:22 GMT</pubDate>
+            <dc:creator>ntpetrova</dc:creator>
+            <category>
+                <![CDATA[ JavaScript ]]>
+            </category>
+            <category>
+                <![CDATA[ Google Chrome ]]>
+            </category>
+            <category>плагин</category>
+            <category>браузеры</category>
+            <category>интернет</category>
+        </item>
+    </channel>
+</rss>
