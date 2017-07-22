@@ -78,10 +78,8 @@ public class MainActivity extends AppCompatActivity {
             try {
                 return loadXmlFromNetwork(urls[0]);
             } catch (IOException e) {
-                Toast.makeText(MainActivity.this, "Connection error", Toast.LENGTH_SHORT).show();
                 return getResources().getString(R.string.connection_error);
             } catch (XmlPullParserException e) {
-                Toast.makeText(MainActivity.this, "XML error", Toast.LENGTH_SHORT).show();
                 return getResources().getString(R.string.xml_error);
             }
         }
